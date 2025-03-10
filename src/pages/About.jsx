@@ -26,7 +26,7 @@ useEffect(() => {
       <div className={`about-content ${step >= 1 ? "flip" : ""}`}>
         <h1 className="large rise">Welcome to Deal Grabber!</h1>
         <h2 className="large rise">
-          Youour Digital Passport for Amazing Deals and Discounts from local Businesses
+          Your Digital Passport for Amazing Deals and Discounts from local Businesses
         </h2>
        
         <p>

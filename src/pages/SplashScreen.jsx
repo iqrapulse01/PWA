@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/SplashScreen.css";
 import logo from "../assets/images/dealgrabber1bg.png";
-import image1 from "../assets/images/black-couple.jpg"; // Add actual image paths
-import image2 from "../assets/images/cheerful-couple.jpg"; // Add actual image paths
-import image3 from "../assets/images/young-man.jpg"; // Add actual image paths
+import image1 from "../assets/imgnew/mobilopoly screen.jpg";
+import image2 from "../assets/images/cheerful-couple.jpg"; 
+import image3 from "../assets/images/cheerful-couple.jpg"; 
+// import image3 from "../assets/images/young-man.jpg"; 
 
 const SplashScreen = ({partners}) => {
   return (

@@ -50,12 +50,12 @@
 }
 /* Active Page Animation */
 .nav-links a.active {
-  color: transparent;
+  color: #148446;
   border-bottom: 1px solid #148446;
-  -webkit-text-stroke: 1px #f7faf8; 
-  text-shadow: -1px -1px 2px #039e50, -4px -4px 20px rgba(0, 0, 0, 0.2);
+  /* -webkit-text-stroke: 1px #f7faf8;  */
+  text-shadow: -1px -1px 2px #f7faf8, -4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(248, 245, 245, 0.2),-4px -4px 20px rgba(250, 249, 249, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2);
   position: relative;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 

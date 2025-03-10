@@ -143,7 +143,7 @@ const Home = () => {
 
       <div className="home-content">
         <h1 className="large rise ">Welcome {username ? username : ""} to Deal Grabber</h1>
-        <p>Your Destination for Dynamic Deals and Discounts</p>
+        <p>Your Destination for Dynamic Deals and Discounts.</p>
         {/* <p>Dealopoly is your super search engine for local offers in your area.</p> */}
 
         <div className="spin-game">

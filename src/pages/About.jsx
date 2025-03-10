@@ -24,27 +24,18 @@ useEffect(() => {
   return (
     <div className="about-container">
       <div className={`about-content ${step >= 1 ? "flip" : ""}`}>
-        <h1 className="large rise">Welcome to Deal Grabber</h1>
+        <h1 className="large rise">Welcome to Deal Grabber!</h1>
         <h2 className="large rise">
-          Your Ultimate Digital Passport for Amazing Deals and Discounts!
+          Youour Digital Passport for Amazing Deals and Discounts from local Businesses
         </h2>
+       
         <p>
-          Deal Grabber unites restaurant, retail, and service businesses with
-          cost-conscious consumers like you who are eager to discover unbeatable
-          deals and discounts at hundreds of local destinations.
+        As a proud channel Partner of{" "}
+          <span className="highlight">Localopoly, Local Directories, Deal Grabber unites restaurants retail</span> and{" "}
+          <span className="highlight">service businesses with cost conscious consumers</span>ike you who are eager to discover unbeatable Deals and discounts at local destinations.
         </p>
         <p>
-          As a proud channel partner of the{" "}
-          <span className="highlight">ShopChiBiz Directory</span> and{" "}
-          <span className="highlight">Urban Eats Restaurant Directory</span>, we
-          empower you to save big while supporting your favorite local
-          establishments.
-        </p>
-        <p>
-          Whether you're a business looking to attract more customers or a savvy
-          shopper hunting for exclusive bargains, Deal Grabber delivers
-          incredible <strong>AI-enabled offers</strong> right at your
-          fingertips.
+        Whether you are a savvy shopper seeking to stretch your dollars or a local business looking for ways to attract new customers, Our <strong style={{ color: "#148446", textTransform: "uppercase" }}>Ai gamified platform</strong>  is the ultimate answer.
         </p>
       </div>
 

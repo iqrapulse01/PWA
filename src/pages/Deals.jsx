@@ -40,7 +40,7 @@ const Deals = () => {
   const navigate = useNavigate();
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     const fetchDeals = async () => {
       try {
@@ -48,10 +48,10 @@ const Deals = () => {
         const dealsCollection = collection(db, "deals");
         const dealsSnapshot = await getDocs(dealsCollection);
         const dealsList = dealsSnapshot.docs.map((doc) => ({
-          id: doc.id, 
-          ...doc.data(), 
+          id: doc.id,
+          ...doc.data(),
         }));
-        
+
         setDeals(dealsList);
         setLoading(false);
       } catch (error) {
@@ -64,34 +64,64 @@ const Deals = () => {
 
   if (loading) {
     return (
-      <h1 
+      <h1
         style={{
           textAlign: "center",
           color: "#148446",
           fontSize: "20px", // Reduced size
           WebkitTextStroke: "1px #f7faf8", // Correct camelCase
-          textShadow: "-1px -1px 2px #039e50, -4px -4px 20px rgba(0, 0, 0, 0.2)" // 3D Text effect
+          textShadow:
+            "-1px -1px 2px #039e50, -4px -4px 20px rgba(0, 0, 0, 0.2)", // 3D Text effect
         }}
       >
         Unlocking savings🔑💵!
       </h1>
     );
   }
-  
-  
 
   return (
     <>
       <SprinkleBackground /> {/* Sprinkles added here in background */}
       <div className="deals">
         <h1 className="large rise">Deals</h1>
+        <h2 className="large rise">
+          AI-enabled offers right at your fingertips!
+        </h2>
+
+        <div className="deal-buttons">
+          <button 
+          style={{color: "#047028"}}
+            className="deal-button"
+            onClick={() => (window.location.href = "/Guide print file.pdf")}
+          >
+            Deal Pages
+          </button>
+          <button
+          style={{color: "#044f70"}}
+            className="deal-button"
+            onClick={() => (window.location.href = "https://13-1-localopoly.vercel.app/the-localopoly-ecosystem.html")}
+          >
+            Deal Partners
+          </button>
+        </div>
+
         <div className="deals-grid">
           {deals.map((deal) => (
-            <div key={deal.id} className="deal-card" style={{ cursor: "pointer" }} onClick={() => navigate(`/deals/${deal.id}`)}>
+            <div
+              key={deal.id}
+              className="deal-card"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(`/deals/${deal.id}`)}
+            >
               <img src={deal.image} alt={deal.name} />
               <h3>{deal.name}</h3>
               <p>{deal.description}</p>
-              <button className="add-to-wallet" onClick={() => navigate(`/deals/${deal.id}`)}>Check Deal</button>
+              <button
+                className="add-to-wallet"
+                onClick={() => navigate(`/deals/${deal.id}`)}
+              >
+                Check Deal
+              </button>
             </div>
           ))}
         </div>

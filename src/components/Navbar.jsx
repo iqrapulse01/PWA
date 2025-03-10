@@ -23,20 +23,33 @@ const Navbar = () => {
       {/* Navigation Links */}
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={toggleMenu}>
+          <Link
+            to="/"
+            className={location.pathname === "/" ? "active" : ""}
+            onClick={toggleMenu}
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to="/deals" className={location.pathname === "/deals" ? "active" : ""} onClick={toggleMenu}>
-            Deals
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className={location.pathname === "/about" ? "active" : ""} onClick={toggleMenu}>
+          <Link
+            to="/about"
+            className={location.pathname === "/about" ? "active" : ""}
+            onClick={toggleMenu}
+          >
             About
           </Link>
         </li>
+        <li>
+          <Link
+            to="/deals"
+            className={location.pathname === "/deals" ? "active" : ""}
+            onClick={toggleMenu}
+          >
+            Deals
+          </Link>
+        </li>
+        
       </ul>
 
       {/* Hamburger Menu for Mobile */}

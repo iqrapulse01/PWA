@@ -26,31 +26,42 @@ const Home = () => {
   const [redirectPath, setRedirectPath] = useState(null);
   const navigate = useNavigate();
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [installPromptVisible, setInstallPromptVisible] = useState(false);
+
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (event) => {
-      event.preventDefault();
-      console.log("✅ beforeinstallprompt event fired!");
-      setDeferredPrompt(event);
+    const handleBeforeInstallPrompt = (e) => {
+      // Prevent the default behavior (which shows the default install prompt)
+      e.preventDefault();
+      console.log("event is triggred")
+      // Save the event so we can trigger it later
+      setDeferredPrompt(e);
+      // Show the custom install button
+      setInstallPromptVisible(true);
     };
-  
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    console.log("📢 Event listener added for beforeinstallprompt");
-  
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    // Cleanup the event listener on unmount
     return () => {
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
   }, []);
   
 
-  const handleInstallClick = () => {
+   // Function to handle when the user clicks the install button
+   const handleInstallClick = () => {
+    console.log("handle install clicked", deferredPrompt)
+
     if (deferredPrompt) {
+      // Show the install prompt to the user
       deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
       deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User accepted the install prompt");
-        }
+        console.log(choiceResult.outcome); // Can be 'accepted' or 'dismissed'
+        // Reset the prompt and hide the install button
         setDeferredPrompt(null);
+        setInstallPromptVisible(false);
       });
     }
   };
@@ -132,26 +143,27 @@ const Home = () => {
 
       <div className="home-content">
         <h1 className="large rise ">Welcome {username ? username : ""} to Deal Grabber</h1>
-        <p>Spin to win amazing Deals & Discounts from Dealopoly.</p>
-        <p>Dealopoly is your super search engine for local offers in your area.</p>
+        <p>Your Destination for Dynamic Deals and Discounts</p>
+        {/* <p>Dealopoly is your super search engine for local offers in your area.</p> */}
 
         <div className="spin-game">
           <SpinWheel prizes={prizes} />
         </div>
 
         <button className="download-btn" onClick={handleInstallClick}>
-          <FiDownload size={20} /> Install App
+          <FiDownload size={20} />
         </button>
 
         <div id="nav-buttons">
           <button onClick={() => navigate("/dealopoly")}>Dealopoly</button>
           <button onClick={() => navigate("/localopoly")}>Deal Pages</button>
           <button onClick={() => navigate("/partners")}>Partners</button>
-          <button onClick={() => navigate("/about")}>About</button>
+          {/* <button onClick={() => navigate("/about")}>About</button> */}
         </div>
       </div>
     </div>
   );
+
 };
 
 export default Home;

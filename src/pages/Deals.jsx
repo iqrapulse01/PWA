@@ -89,18 +89,21 @@ const Deals = () => {
         </h2>
 
         <div className="deal-buttons">
-        <button 
-  style={{ color: "#047028" }} 
-  className="deal-button"
-  onClick={() => window.open("/Guide-print-file.pdf", "_blank")}
->
-  Deal Pages
-</button>
+          <button
+            style={{ color: "#047028" }}
+            className="deal-button"
+            onClick={() => window.open("/Guide-print-file.pdf", "_blank")}
+          >
+            Deal Pages
+          </button>
 
           <button
-          style={{color: "#044f70"}}
+            style={{ color: "#044f70" }}
             className="deal-button"
-            onClick={() => (window.location.href = "https://13-1-localopoly.vercel.app/the-localopoly-ecosystem.html")}
+            onClick={() =>
+              (window.location.href =
+                "https://13-1-localopoly.vercel.app/the-localopoly-ecosystem.html")
+            }
           >
             Deal Partners
           </button>

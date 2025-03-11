@@ -92,7 +92,15 @@ const Deals = () => {
           <button
             style={{ color: "#047028" }}
             className="deal-button"
-            onClick={() => window.open("/Guide-print-file.pdf", "_blank")}
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/public/Guide-print-file.pdf"; 
+              // link.download = "/public/Guide-print-file.pdf"; 
+              link.target = "_blank"; // Open in a new tab
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
           >
             Deal Pages
           </button>

@@ -28,30 +28,31 @@ const Home = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [installPromptVisible, setInstallPromptVisible] = useState(false);
 
-
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
       // Prevent the default behavior (which shows the default install prompt)
       e.preventDefault();
-      console.log("event is triggred")
+      console.log("event is triggred");
       // Save the event so we can trigger it later
       setDeferredPrompt(e);
       // Show the custom install button
       setInstallPromptVisible(true);
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     // Cleanup the event listener on unmount
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
     };
   }, []);
-  
 
-   // Function to handle when the user clicks the install button
-   const handleInstallClick = () => {
-    console.log("handle install clicked", deferredPrompt)
+  // Function to handle when the user clicks the install button
+  const handleInstallClick = () => {
+    console.log("handle install clicked", deferredPrompt);
 
     if (deferredPrompt) {
       // Show the install prompt to the user
@@ -125,16 +126,39 @@ const Home = () => {
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-box">
-            <div className="brand-logo" style={{ backgroundImage: `url(${logo})` }}></div>
+            <div
+              className="brand-logo"
+              style={{ backgroundImage: `url(${logo})` }}
+            ></div>
             <h2 className="brand-title ">Enter Details to Play</h2>
             <form onSubmit={handleSubmit}>
               <div className="inputs">
-                <input type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input type="tel" placeholder="Enter your phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                <input
+                  type="text"
+                  placeholder="Enter name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+                <input
+                  type="tel"
+                  placeholder="Enter phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
               </div>
               <div className="popup-buttons">
-                <button type="submit" className="submit-bt">Submit</button>
-                <button className="close-btn" type="reset" onClick={handleClosePopup}>Skip</button>
+                <button type="submit" className="submit-bt">
+                  Submit
+                </button>
+                <button
+                  className="close-btn"
+                  type="reset"
+                  onClick={handleClosePopup}
+                >
+                  Skip
+                </button>
               </div>
             </form>
           </div>
@@ -142,28 +166,28 @@ const Home = () => {
       )}
 
       <div className="home-content">
-        <h1 className="large rise ">Welcome {username ? username : ""} to Deal Grabber</h1>
+        <h1 className="large rise ">
+          Welcome {username ? username : ""} to Deal Grabber
+        </h1>
         <p>Your Destination for Dynamic Deals and Discounts.</p>
         {/* <p>Dealopoly is your super search engine for local offers in your area.</p> */}
 
         <div className="spin-game">
           <SpinWheel prizes={prizes} />
         </div>
-
-        <button className="download-btn" onClick={handleInstallClick}>
-          <FiDownload size={20} />
-        </button>
+        {/* <FiDownload size={20} /> */}
 
         <div id="nav-buttons">
-          <button onClick={() => navigate("/dealopoly")}>Dealopoly</button>
           <button onClick={() => navigate("/localopoly")}>Deal Pages</button>
+          <button onClick={() => navigate("/dealopoly")}>Dealopoly</button>
           <button onClick={() => navigate("/partners")}>Partners</button>
-          {/* <button onClick={() => navigate("/about")}>About</button> */}
+          <button onClick={handleInstallClick}>
+            Download to Home Screen
+          </button>
         </div>
       </div>
     </div>
   );
-
 };
 
 export default Home;

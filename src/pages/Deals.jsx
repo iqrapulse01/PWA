@@ -89,23 +89,23 @@ const Deals = () => {
         </h2>
 
         <div className="deal-buttons">
-          <button
+          {/* <button
             style={{ color: "#047028" }}
             className="deal-button"
             onClick={() => {
               const link = document.createElement("a");
-              link.href = "/public/Guide-print-file.pdf"; 
-              // link.download = "/public/Guide-print-file.pdf"; 
-              link.target = "_blank"; // Open in a new tab
+              link.href = "/Guide-print-file.pdf"; 
+              link.download = "Guide-print-file.pdf";
+              link.target = "_blank"; 
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
             }}
           >
             Deal Pages
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             style={{ color: "#044f70" }}
             className="deal-button"
             onClick={() =>
@@ -113,8 +113,8 @@ const Deals = () => {
                 "https://13-1-localopoly.vercel.app/the-localopoly-ecosystem.html")
             }
           >
-            Deal Partners
-          </button>
+            Localopoly
+          </button> */}
         </div>
 
         <div className="deals-grid">
@@ -132,7 +132,7 @@ const Deals = () => {
                 className="add-to-wallet"
                 onClick={() => navigate(`/deals/${deal.id}`)}
               >
-                Check Deal
+                Grab Deal
               </button>
             </div>
           ))}

@@ -15,7 +15,7 @@
 
 /* Content Box */
 .about-content {
-  max-width: 800px;
+  max-width: 900px;
   text-align: center;
   background: white;
   padding: 10px;
@@ -35,7 +35,7 @@
   font-size: 2rem;
   font-family: "Audiowide", cursive;
   color: #044f70;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .about-content h1:hover {
   color: #148446;
@@ -43,9 +43,12 @@
 
 .about-content h2 {
   font-size: 1.4rem;
+  width: 80%;
+  margin: 0 auto;
   font-family: "Audiowide", cursive;
   color: #148446;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .about-content h2:hover {
   color: #044f70;
@@ -83,10 +86,15 @@
 
 /* Paragraphs */
 .about-content p {
-  font-size: 1.1rem;
-  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 90%;
+  margin: 0 auto;
+  color: #202020;
   margin-bottom: 15px;
   line-height: 1.6;
+  max-width: 700px;
+  text-align: justify;
 }
 
 /* Highlight */

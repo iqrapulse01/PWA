@@ -1,61 +1,70 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/SplashScreenn.css";
-import { Link } from "react-router-dom";
-import partnersImage from "../assets/images/young-man.jpg"; // Placeholder Image
+import "../styles/Partners.css";
 import SplashScreen from "./SplashScreen";
-
+import partnersImage from "../assets/imgnew/mobilopoly screen 3.jpg"; 
+import logoImage from "../assets/images/dealgrabber1bg.png";
 
 const PartnersSplash = () => {
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState(5)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => prev - 1);
-    }, 1000);
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
+  const [fadeClass, setFadeClass] = useState(""); // Initially empty
 
+  useEffect(() => {
+    // Apply fade-in effect on mount
     setTimeout(() => {
-      let splashScreen = document.querySelector(".splash-screen_dealopoly");
-      let navButtons = document.querySelector("#nav-buttons-partners");
-      if (splashScreen) {
-        splashScreen.style.display = "none";
-        navButtons.style.display = "flex";
-      }
-      clearInterval(timer); // Stop countdown when splash disappears
+      setFadeClass("fade-in");
+    }, 10); // Small delay to ensure CSS transition applies
+
+    // Start fade-out after 4 seconds
+    const fadeOutTimer = setTimeout(() => {
+      setFadeClass("fade-out");
+    }, 4000); 
+
+    // Completely remove splash screen after 5 seconds
+    const removeSplashTimer = setTimeout(() => {
+      setShowSplashScreen(false);
     }, 5000);
-    return () => clearInterval(timer);
-  }, [navigate]);
 
-  const [showSplashScreen, setShowSplashScreen] = useState(true)
+    return () => {
+      clearTimeout(fadeOutTimer);
+      clearTimeout(removeSplashTimer);
+    };
+  }, []);
 
-
-  useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowSplashScreen(false);
-      }, 5000); // Show splash for 3 sec
-      return () => clearTimeout(timer);
-    }, []);
-    
-  
-    if(showSplashScreen){
-      return <SplashScreen partners={true}/>
-    }
-  
+  if (showSplashScreen) {
+    return (
+      <div
+        className={`splash-container ${fadeClass}`}
+        style={{
+          backgroundImage: `url(${partnersImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100vw",
+          height: "100vh",
+          position: "fixed",
+          paddingTop:"60px",
+          top: 0,
+          left: 0,
+          zIndex: 9999,
+        }}
+      >
+        <SplashScreen partners={true} />
+      </div>
+    );
+  }
 
   return (
-
     <>
-   
-
-      <div id="nav-buttons-partners">
-          <button onClick={() => navigate("/foodopoly")}>Foodopoly</button>
-          <button onClick={() => navigate("/mobilopoly")}>Mobilopoly </button>
-          {/* <button onClick={() => handleNavigation("/about")}>About Us</button> */}
-        </div>
-
+      <div className="partnerbtn">
+        <button onClick={() => navigate("/foodopoly")}>Foodopoly</button>
+        <button onClick={() => navigate("/mobilopoly")}>Mobilopoly</button>
+        <button onClick={() => navigate("/shopch")}>Shop CHI</button>
+        <button onClick={() => navigate("/partnerlocalopoly")}>Localopoly</button>
+      </div>
     </>
   );
 };
-
 
 export default PartnersSplash;

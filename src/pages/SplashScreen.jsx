@@ -17,7 +17,7 @@ const SplashScreen = ({partners}) => {
         <img src={image3} alt="Deal 3" className="splash-image fade-in" />
       </div> }
       {partners ? <div className="splash-content">
-        <p className="splash-text">Partners page is loading...!</p>
+        <p className="splash-text"></p>
       </div>: <div className="splash-content">
         <img src={logo} alt="Deal Grabber Logo" className="splash-logo" />
         <p className="splash-text">Find the best deals in town!</p>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/SplashScreenn.css";
-import dealPagesImage from "../assets/images/young-man.jpg"; // Placeholder Image
+import dealPagesImage from "../assets/images/young-man.jpg";
 import SplashScreenDealPages from "./SplashScreenDealPages";
 
 const DealPagesSplash = () => {
